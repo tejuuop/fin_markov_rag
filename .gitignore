@@ -1,0 +1,13 @@
+# Environments
+venv/
+env/
+__pycache__/
+
+# Datasets (CRITICAL: Do not upload the 2.8GB SEC files)
+data/
+*.csv
+*.json
+*.db
+
+# Environment variables
+.env
