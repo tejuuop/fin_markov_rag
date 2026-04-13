@@ -13,10 +13,11 @@ This project models financial market trends by constructing a Discrete-Time Mark
 * **Steady-State Distributions:** Computing the long-term equilibrium of the market states using eigenvector calculations ($\pi = \pi P$).
 * **First-Passage Times:** Calculating the expected time (number of steps) to transition into a specific target state (e.g., from Stagnant to Bull).
 
-### 2. Graph-Based RAG Prototype
-* **Node Definition:** Text chunks from financial filings are treated as nodes.
-* **Edge Weights:** Cosine similarity of text embeddings dictates the transition probabilities between chunks.
-* **PageRank Retrieval:** Utilizing the PageRank algorithm to simulate a random walk across the text graph, identifying the most contextually central and authoritative chunks for LLM processing.
+### 2. Graph-Based RAG Prototype (Latent Risk Retrieval)
+To solve the temporal mismatch between real-time market volatility and annual reporting, this system utilizes the DTMC as a real-time trigger mechanism to query lagging fundamental data.
+* **Targeted Extraction:** The system isolates "Item 1A: Risk Factors" from massive SEC 10-K filings.
+* **Node Definition:** Distinct risk disclosures are treated as nodes within a directed graph.
+* **PageRank Retrieval:** When the DTMC triggers a specific market state probability (e.g., an impending Bear market), the RAG simulates a Markovian random walk across the risk graph. It retrieves the most heavily interconnected and structurally critical latent vulnerabilities a company possesses, providing instant, fundamental context to statistical market shifts.
 
 ## 💻 Tech Stack
 * **Core:** Python
